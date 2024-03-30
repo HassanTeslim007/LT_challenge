@@ -1,16 +1,17 @@
 # lt_challenge
 
-A new Flutter project.
+A Flutter app that allows you to surf youtube videos when there's an internet connection and play Wordle gamwe when you're offline.
 
-## Getting Started
+The project uses a simple Clean Architecture with BLOC for state management.
 
-This project is a starting point for a Flutter application.
+Download apk here: https://drive.google.com/file/d/1Mm0HcQHOfyYJkh7qhy2FZsBnyK2jS3H7/view?usp=sharing
 
-A few resources to get you started if this is your first Flutter project:
+Video Preview: 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+https://github.com/HassanTeslim007/LT_challenge/assets/64636170/a7baf54e-ba7d-41b2-b2ba-47d0b63c296b
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Note: This project doesn't include the unit tests as required in the challenge due to insufficient time.
+
+
+
+
