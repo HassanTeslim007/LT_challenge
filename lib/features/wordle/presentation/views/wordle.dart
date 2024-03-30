@@ -21,7 +21,7 @@ class _WordleState extends State<Wordle> {
       (timeStamp) {
         showSnackBar(
           context,
-          message: 'Connection Disconnected',
+          message: 'No Internet Connection',
         );
       },
     );

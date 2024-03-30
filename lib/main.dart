@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -34,7 +32,6 @@ class MyApp extends StatelessWidget {
                 WordleBloc(WordleDataSource())..add(GenerateRandomWordEvent()))
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
@@ -54,9 +51,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  bool hasInternet = false;
-  late StreamSubscription internetSubscription;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
