@@ -1,3 +1,4 @@
+import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -20,6 +21,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final fiveLetterWords = [
+      ...all.where((word) => word.length == 5).toList(),
+      ...all.where((word) => word.length == 4).map((e) => '${e}s').toList()
+    ];
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -29,7 +34,8 @@ class MyApp extends StatelessWidget {
                     SearchRepositoryImpl(SearchDataSourceImpl(http.Client())))),
         BlocProvider(
             create: (_) =>
-                WordleBloc(WordleDataSource())..add(GenerateRandomWordEvent()))
+                WordleBloc(WordleDataSource(fiveLetterWords: fiveLetterWords))
+                  ..add(GenerateRandomWordEvent()))
       ],
       child: MaterialApp(
         theme: ThemeData(

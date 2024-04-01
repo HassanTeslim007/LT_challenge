@@ -1,12 +1,9 @@
 import 'dart:math';
 
-import 'package:english_words/english_words.dart';
-
 class WordleDataSource {
-  List<String> fiveLetterWords = [
-    ...all.where((word) => word.length == 5).toList(),
-    ...all.where((word) => word.length == 4).map((e) => '${e}s').toList()
-  ];
+ final List<String> fiveLetterWords;
+
+  WordleDataSource({required this.fiveLetterWords});
 
   Future<String> generateWord() async {
     int randomIndex = Random().nextInt(fiveLetterWords.length);
