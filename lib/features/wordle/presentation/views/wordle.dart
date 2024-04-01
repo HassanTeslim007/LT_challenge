@@ -112,7 +112,7 @@ class _WordleState extends State<Wordle> {
                           return;
                         }
                         context.read<WordleBloc>().add(CheckWordEvent(
-                            bloc.randomWord, word.toLowerCase()));
+                            bloc.randomWord));
                         Future.delayed(const Duration(seconds: 1));
                         if (word == bloc.randomWord) {
                           bloc.wins += 1;

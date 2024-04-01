@@ -12,10 +12,10 @@ final class GenerateRandomWordEvent extends WordleEvent {}
 final class PlayAgainEvent extends WordleEvent {}
 
 final class CheckWordEvent extends WordleEvent {
-  final String generatedWord;
+  // final String generatedWord;
   final String guessedWord;
 
-  CheckWordEvent(this.generatedWord, this.guessedWord);
+  CheckWordEvent(this.guessedWord);
 }
 
 final class UpdateKeysEvent extends WordleEvent {
