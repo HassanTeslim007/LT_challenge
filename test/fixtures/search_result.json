@@ -1,0 +1,25 @@
+{
+    "nextPageToken": "nextPageToken",
+    "items": [
+        {
+            "snippet": {
+                "publishedAt": "2021-07-10T15:00:10Z",
+                "channelId": "channelId",
+                "title": "Test Video",
+                "description": "Test Description",
+                "thumbnails": {
+                    "high": {
+                        "url": "https://example.com/thumbnail.jpg"
+                    }
+                },
+                "channelTitle": "Test Channel",
+                "liveBroadcastContent": "none",
+                "publishTime": "2021-07-10T15:00:10Z"
+            },
+            "id": {
+                "videoId": "videoId"
+            }
+        }
+    ]
+}
+

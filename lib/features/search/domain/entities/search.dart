@@ -1,32 +1,22 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/foundation.dart';
+
 class SearchResult {
   String? nextPageToken;
   List<Item>? items;
 
   SearchResult({this.nextPageToken, this.items});
 
-  SearchResult.fromJson(Map<String, dynamic> json) {
-    nextPageToken = json['nextPageToken'];
-    if (json['items'] != null) {
-      items = <Item>[];
-      json['items'].forEach((v) {
-        items!.add(Item.fromJson(v));
-      });
-    }
-  }
+  @override
+  bool operator ==(covariant SearchResult other) {
+    if (identical(this, other)) return true;
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['nextPageToken'] = nextPageToken;
-    if (items != null) {
-      data['items'] = items!.map((v) => v.toJson()).toList();
-    }
-    return data;
+    return other.nextPageToken == nextPageToken &&
+        listEquals(other.items, items);
   }
 
   @override
-  String toString() =>
-      'SearchResult(nextPageToken: $nextPageToken, items: $items)';
+  int get hashCode => nextPageToken.hashCode ^ items.hashCode;
 }
 
 class Item {
@@ -80,5 +70,33 @@ class Item {
   @override
   String toString() {
     return 'Items(publishedAt: $publishedAt, channelId: $channelId, title: $title, description: $description, url: $thumbnail, channelTitle: $channelTitle, liveBroadcastContent: $liveBroadcastContent, publishTime: $publishTime, videoId: $videoId)';
+  }
+
+  @override
+  bool operator ==(covariant Item other) {
+    if (identical(this, other)) return true;
+
+    return other.publishedAt == publishedAt &&
+        other.channelId == channelId &&
+        other.title == title &&
+        other.description == description &&
+        other.thumbnail == thumbnail &&
+        other.channelTitle == channelTitle &&
+        other.liveBroadcastContent == liveBroadcastContent &&
+        other.publishTime == publishTime &&
+        other.videoId == videoId;
+  }
+
+  @override
+  int get hashCode {
+    return publishedAt.hashCode ^
+        channelId.hashCode ^
+        title.hashCode ^
+        description.hashCode ^
+        thumbnail.hashCode ^
+        channelTitle.hashCode ^
+        liveBroadcastContent.hashCode ^
+        publishTime.hashCode ^
+        videoId.hashCode;
   }
 }

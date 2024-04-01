@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:lt_challenge/core/failure/exceptions.dart';
 import 'package:lt_challenge/core/utils/secrets.dart';
+import 'package:lt_challenge/features/search/data/models/searchmodel.dart';
 import 'package:lt_challenge/features/search/domain/entities/search.dart';
 import 'package:http/http.dart' as http;
 
@@ -15,11 +16,11 @@ class SearchDataSourceImpl implements SearchDataSource {
 
   SearchDataSourceImpl(this.client);
   @override
-  Future<SearchResult> search(
+  Future<SearchResultModel> search(
       {required String query, String? nextPageToken}) async {
     try {
       final response = await client.get(
-        //Base URL: 'www.googleapis.com'
+          //Base URL: 'www.googleapis.com'
           Uri.https(Secrets.BASE_URL, '/youtube/v3/search', {
             'part': 'snippet',
             'q': query,
@@ -28,9 +29,9 @@ class SearchDataSourceImpl implements SearchDataSource {
             'key': Secrets.API_KEY,
           }),
           headers: {'Accept': 'application/json'});
-      SearchResult result;
+      SearchResultModel result;
       if (response.statusCode.toString().startsWith('2')) {
-        result = SearchResult.fromJson(jsonDecode(response.body));
+        result = SearchResultModel.fromJson(jsonDecode(response.body));
       } else {
         throw CustomException(
                 message: jsonDecode(response.body)['error']['message'])
