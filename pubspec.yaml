@@ -44,6 +44,7 @@ dependencies:
   youtube_player_flutter: ^9.0.0
 
 dev_dependencies:
+  bloc_test: ^9.1.7
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
